@@ -7,7 +7,7 @@ import {
   StyledLink,
   TopBtn,
 } from "./Home.styled";
-import Header from "../../components/header/Header";
+import Header from "../header/NavBar";
 import { parsePostIdFromUrl } from "../../helpers/parsePostIdFromUrl";
 import Loading from "../Loading/Loading";
 import ErrorPage from "@/pages/404";
@@ -57,7 +57,6 @@ function Home({
   };
   return (
     <>
-      <Header />
       <HomeStyled>
         <Status>
           {status !== ("pending" || "idle") && (
@@ -69,7 +68,7 @@ function Home({
           {posts.map((post) => {
             return (
               <StyledLink
-                to={`/posts/${parsePostIdFromUrl(post.url).toString()}`}
+                href={`/posts/${parsePostIdFromUrl(post.url).toString()}`}
                 key={post.url}
               >
                 <Post post={post} />

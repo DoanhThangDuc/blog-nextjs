@@ -1,20 +1,24 @@
 import styled from "styled-components";
-export const HeaderStyled = styled.div`
+import Link from "next/link";
+
+
+export namespace sc {
+  export const HeaderStyled = styled.div`
   width: 100%;
+  display: flex;
   box-sizing: border-box;
   padding: 4.375rem 4.375rem;
-  display: inline-flex;
   justify-content: space-between;
 `;
 
 export const Logo = styled.div``;
-export const Button = styled.div`
+export const NavLinks = styled.div`
   display: inline-flex;
   width: 40em;
   justify-content: space-between;
-  & a {
-    color: #211f1fc9;
-    font-size: 15px;
-    cursor: pointer;
-  }
 `;
+export const NavLink = styled(Link)`
+  color: #211f1fc9;
+  font-size: 15px;
+  cursor: pointer;`
+}
