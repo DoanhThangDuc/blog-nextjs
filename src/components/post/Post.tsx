@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PostModal } from "../../features/PostsSlice";
 import { limitParagraph } from "../../helpers/limitParagraph";
+import { PostModal } from "../Home/Home";
 import {
   PostContainer,
   PostContent,
