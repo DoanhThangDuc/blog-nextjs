@@ -1,14 +1,15 @@
 import React from "react";
+
 import {
-  CommentStyled,
-  CommentNumber,
   CommentContainer,
-  Img,
-  Content,
-  Name,
-  Desciption,
-  Reply,
+  CommentNumber,
+  CommentStyled,
   Container,
+  Content,
+  Desciption,
+  Img,
+  Name,
+  Reply,
 } from "./Comment.styled";
 
 export interface CommentProps {
@@ -17,11 +18,13 @@ export interface CommentProps {
   description: string;
   numberComment: number;
 }
-function Comment({ src, author, description, numberComment }: CommentProps) {
+function Comment({
+  src, author, description, numberComment,
+}: CommentProps) {
   return (
     <CommentStyled>
       <Container>
-        <CommentNumber>{numberComment + " COMMENTS"}</CommentNumber>
+        <CommentNumber>{`${numberComment} COMMENTS`}</CommentNumber>
         <CommentContainer>
           <Img src={src} />
           <Content>

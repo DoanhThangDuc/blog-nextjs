@@ -1,6 +1,7 @@
-import React from "react";
-import { sc} from "./Header.styled";
 import Link from "next/link";
+import React from "react";
+
+import { sc } from "./Header.styled";
 
 function Navbar() {
   return (

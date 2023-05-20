@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { CiPaperplane } from "react-icons/ci";
+import styled from "styled-components";
+
 export const NewsletterStyled = styled.div`
   height: 18rem;
   margin-bottom: 20px;

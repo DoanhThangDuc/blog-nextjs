@@ -1,13 +1,14 @@
 import React from "react";
+
 import {
-  PostSubject,
-  PostsChartStyled,
-  ChartContent,
-  Title,
-  CommentNumber,
-  ChartList,
-  PostChart,
   Banner,
+  ChartContent,
+  ChartList,
+  CommentNumber,
+  PostChart,
+  PostsChartStyled,
+  PostSubject,
+  Title,
 } from "./PostsChart.styled";
 
 export interface PostsChartProps {
@@ -23,19 +24,19 @@ function PostsChart({ title, commentNumber, src }: PostsChartProps) {
         <ChartList>
           <PostChart>
             <Title>{title}</Title>
-            <CommentNumber>{commentNumber + " COMMENTS"}</CommentNumber>
+            <CommentNumber>{`${commentNumber} COMMENTS`}</CommentNumber>
           </PostChart>
         </ChartList>
         <ChartList>
           <PostChart>
             <Title>{title}</Title>
-            <CommentNumber>{commentNumber + " COMMENTS"}</CommentNumber>
+            <CommentNumber>{`${commentNumber} COMMENTS`}</CommentNumber>
           </PostChart>
         </ChartList>
         <ChartList>
           <PostChart>
             <Title>{title}</Title>
-            <CommentNumber>{commentNumber + " COMMENTS"}</CommentNumber>
+            <CommentNumber>{`${commentNumber} COMMENTS`}</CommentNumber>
           </PostChart>
         </ChartList>
       </ChartContent>

@@ -7,7 +7,7 @@ export const parsePostIdFromUrl = (url: string) => {
   if (postId.includes("id=")) {
     return (postId = postId.substring(
       postId.lastIndexOf("id=") + 3,
-      postId.length
+      postId.length,
     ));
   }
   return (postId = postId

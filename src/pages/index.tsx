@@ -1,6 +1,9 @@
-import Home from '@/components/Home/Home'
-import Head from 'next/head'
-import { dummyPosts } from '../../Dummy-data'
+import Head from "next/head";
+import React from "react";
+
+import Home from "@/components/Home/Home";
+
+import { dummyPosts } from "../../Dummy-data";
 
 export default function BlogNextJS() {
   return (
@@ -12,8 +15,8 @@ export default function BlogNextJS() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-      <Home  posts={dummyPosts} status="idle" errorMessage="" />
+        <Home posts={dummyPosts} status="idle" errorMessage="" />
       </div>
     </>
-  )
+  );
 }

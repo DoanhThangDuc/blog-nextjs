@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { PostModal } from "../../features/PostsSlice";
+
 import Post from "./Post";
 
 export default {
@@ -7,8 +7,8 @@ export default {
   component: Post,
 } as Meta<PostModal>;
 const Template: Story<PostModal & { openDetails: (id: number) => void }> = (
-  args
-) => <Post post ={args} />;
+  args,
+) => <Post post={args} />;
 
 export const Default = Template.bind({});
 Default.args = {

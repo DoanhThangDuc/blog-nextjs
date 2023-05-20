@@ -1,6 +1,7 @@
-import Header from "./NavBar";
-import { withRouter } from "storybook-addon-react-router-v6";
 import { Meta, Story } from "@storybook/react";
+import { withRouter } from "storybook-addon-react-router-v6";
+
+import Header from "./NavBar";
 
 export default {
   title: "Header",

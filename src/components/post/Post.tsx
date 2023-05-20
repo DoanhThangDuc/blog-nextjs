@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+
+import { PostModal } from "@/shared/types";
+
 import { limitParagraph } from "../../helpers/limitParagraph";
-import { PostModal } from "../Home/Home";
 import {
   PostContainer,
   PostContent,
   PostImg,
+  PostStyled,
   PostSubject,
   PostTitle,
-  PostStyled,
 } from "./Post.styled";
 
 function Post({ post }: { post: PostModal }) {

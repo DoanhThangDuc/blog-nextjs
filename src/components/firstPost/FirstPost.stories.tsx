@@ -1,5 +1,7 @@
 import { Meta, Story } from "@storybook/react";
-import { PostModal } from "../../features/PostsSlice";
+
+import { PostModal } from "@/shared/types";
+
 import FirstPost from "./FirstPost";
 
 export default {

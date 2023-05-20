@@ -1,4 +1,6 @@
 import { Meta, Story } from "@storybook/react";
+import React from "react";
+
 import PostsChart, { PostsChartProps } from "./PostsChart";
 
 export default {
@@ -6,7 +8,7 @@ export default {
   component: PostsChart,
 } as Meta<PostsChartProps>;
 
-const Template: Story<PostsChartProps> = (args) => <PostsChart {...args} />;
+const Template: Story<PostsChartProps> = (args: any) => <PostsChart {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

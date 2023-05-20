@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import Link from "next/link";
-
+import styled from "styled-components";
 
 export namespace sc {
   export const HeaderStyled = styled.div`
@@ -11,14 +10,14 @@ export namespace sc {
   justify-content: space-between;
 `;
 
-export const Logo = styled.div``;
-export const NavLinks = styled.div`
+  export const Logo = styled.div``;
+  export const NavLinks = styled.div`
   display: inline-flex;
   width: 40em;
   justify-content: space-between;
 `;
-export const NavLink = styled(Link)`
+  export const NavLink = styled(Link)`
   color: #211f1fc9;
   font-size: 15px;
-  cursor: pointer;`
+  cursor: pointer;`;
 }

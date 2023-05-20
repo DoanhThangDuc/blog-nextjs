@@ -1,12 +1,13 @@
 import React from "react";
+
 import {
-  NewsletterStyled,
+  Container,
   Content,
   InputContainer,
   InputEmail,
   Lable,
+  NewsletterStyled,
   SendIcon,
-  Container,
 } from "./Newsletter.styled";
 
 function Newsletter({ content, lable }: { content: string; lable: string }) {

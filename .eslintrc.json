@@ -1,3 +1,36 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "simple-import-sort"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/destructuring-assignment": 1,
+    "@typescript-eslint/quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    "consistent-return": "off",
+    "react/function-component-definition": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "next/next/no-img-element": "off"
+  }
 }

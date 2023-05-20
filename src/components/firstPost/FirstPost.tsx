@@ -1,14 +1,16 @@
 import React from "react";
-import { PostModal } from "../../features/PostsSlice";
+
+import { PostModal } from "@/shared/types";
+
 import {
-  FirstPostContent,
-  FirstPostImg,
-  Subject,
-  Title,
   Comment,
   Content,
+  FirstPostContent,
+  FirstPostImg,
   FirstPostStyled,
   Img,
+  Subject,
+  Title,
 } from "./FirstPost.styled";
 
 function FirstPost(post: PostModal) {

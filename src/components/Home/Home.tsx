@@ -1,5 +1,11 @@
-import { memo, useEffect, useState } from "react";
-import Post from "../../components/post/Post";
+import React, { memo, useEffect, useState } from "react";
+
+import ErrorPage from "@/pages/404";
+import { PostModal } from "@/shared/types";
+
+import { parsePostIdFromUrl } from "../../helpers/parsePostIdFromUrl";
+import Loading from "../Loading/Loading";
+import Post from "../post/Post";
 import {
   HomeStyled,
   PostContainer,
@@ -7,36 +13,19 @@ import {
   StyledLink,
   TopBtn,
 } from "./Home.styled";
-import Header from "../header/NavBar";
-import { parsePostIdFromUrl } from "../../helpers/parsePostIdFromUrl";
-import Loading from "../Loading/Loading";
-import ErrorPage from "@/pages/404";
 
-export interface PostModal {
-  source: {
-    id: string;
-    name: string;
-  };
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  imageUrl: string;
-  publishedAt: string;
-  content: string;
-}
 export type HomeProps = {
   posts: PostModal[];
+  // eslint-disable-next-line react/require-default-props
   status?: string;
-  errorMessage?: string | null;
-}
+  errorMessage?: string;
+};
 function Home({
   posts,
   status,
   errorMessage,
-}: HomeProps ) {
-  const [shouldTopBtnVisible, setShouldTopBtnVisible] =
-    useState<boolean>(false);
+}: HomeProps) {
+  const [shouldTopBtnVisible, setShouldTopBtnVisible] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -56,29 +45,25 @@ function Home({
     });
   };
   return (
-    <>
-      <HomeStyled>
-        <Status>
-          {status !== ("pending" || "idle") && (
-            <ErrorPage message={errorMessage} />
-          )}
-          {status === "pending" && <Loading />}
-        </Status>
-        <PostContainer>
-          {posts.map((post) => {
-            return (
-              <StyledLink
-                href={`/posts/${parsePostIdFromUrl(post.url).toString()}`}
-                key={post.url}
-              >
-                <Post post={post} />
-              </StyledLink>
-            );
-          })}
-        </PostContainer>
-        {shouldTopBtnVisible && <TopBtn size={40} onClick={scrollToTop} />}
-      </HomeStyled>
-    </>
+    <HomeStyled>
+      <Status>
+        {status !== ("pending" || "idle") && (
+        <ErrorPage message={errorMessage} />
+        )}
+        {status === "pending" && <Loading />}
+      </Status>
+      <PostContainer>
+        {posts.map((post) => (
+          <StyledLink
+            href={`/posts/${parsePostIdFromUrl(post.url).toString()}`}
+            key={post.url}
+          >
+            <Post post={post} />
+          </StyledLink>
+        ))}
+      </PostContainer>
+      {shouldTopBtnVisible && <TopBtn size={40} onClick={scrollToTop} />}
+    </HomeStyled>
   );
 }
 

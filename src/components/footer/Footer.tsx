@@ -1,15 +1,16 @@
 import React from "react";
+
 import {
+  FacebookIcon,
   FooterStyled,
+  Icons,
+  InstagramIcon,
+  Privacy,
   PrivacyContainer,
+  SocialContainer,
   Socials,
   Terms,
-  Privacy,
-  FacebookIcon,
   TwitterIcon,
-  InstagramIcon,
-  SocialContainer,
-  Icons
 } from "./Footer.styled";
 
 function Footer() {

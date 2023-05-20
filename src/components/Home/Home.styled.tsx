@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { FaArrowCircleUp } from "react-icons/fa";
 import Link from "next/link";
+import { FaArrowCircleUp } from "react-icons/fa";
+import styled from "styled-components";
 
 export const HomeStyled = styled.div`
   display: flex;

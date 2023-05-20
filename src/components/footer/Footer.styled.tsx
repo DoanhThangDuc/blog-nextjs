@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
+import styled from "styled-components";
 
 export const FooterStyled = styled.div`
   display: inline-flex;
