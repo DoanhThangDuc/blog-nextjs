@@ -1,6 +1,6 @@
 import React from "react";
 
-import FirstPost from "@/components/firstPost/FirstPost";
+import FirstPost from "@/components/firstPost/PostDetail";
 
 const post = {
   source: {

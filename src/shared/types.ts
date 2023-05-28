@@ -21,3 +21,7 @@ export type IServerRenderProps = {
 export type IClientRenderProps = {
   isServerRender: false;
 };
+export type Source = {
+  id: string;
+  name: string;
+};

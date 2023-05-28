@@ -7,8 +7,6 @@ import Home from "@/components/Home/Home";
 import { IServerRenderProps } from "@/shared/types";
 import { HomeData, HomeStore } from "@/stores/HomeStore";
 
-import { dummyPosts } from "../../Dummy-data";
-
 export type IHomeProps =
   | ({
     pageData: HomeData;

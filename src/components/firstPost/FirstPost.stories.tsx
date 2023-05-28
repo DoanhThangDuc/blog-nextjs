@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 
 import { PostModal } from "@/shared/types";
 
-import FirstPost from "./FirstPost";
+import FirstPost from "./PostDetail";
 
 export default {
   title: "First Post",
