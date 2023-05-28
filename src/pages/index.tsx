@@ -1,11 +1,21 @@
+import { observer } from "mobx-react-lite";
+import { NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 
 import Home from "@/components/Home/Home";
+import { IServerRenderProps } from "@/shared/types";
+import { HomeData, HomeStore } from "@/stores/HomeStore";
 
 import { dummyPosts } from "../../Dummy-data";
 
-export default function BlogNextJS() {
+export type IHomeProps =
+  | ({
+    pageData: HomeData;
+  } & IServerRenderProps);
+
+const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
+  const { pageData } = props;
   return (
     <>
       <Head>
@@ -15,8 +25,20 @@ export default function BlogNextJS() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Home posts={dummyPosts} status="idle" errorMessage="" />
+        <Home posts={pageData.posts} status="idle" errorMessage="" />
       </div>
     </>
   );
+});
+
+export function getServerSideProps(ctx: any) {
+  const pageStore = new HomeStore();
+
+  return {
+    props: {
+      pageData: pageStore.dehydrate(),
+      isServerRender: true,
+    },
+  };
 }
+export default IndexPage;

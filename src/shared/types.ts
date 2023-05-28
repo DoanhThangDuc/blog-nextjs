@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type PostModal = {
   source: {
     id: string;
@@ -10,4 +12,12 @@ export type PostModal = {
   imageUrl: string;
   publishedAt: string;
   content: string;
+};
+export type ErrorMessage = null | string | ReactNode;
+export type IServerRenderProps = {
+  isServerRender: true;
+};
+
+export type IClientRenderProps = {
+  isServerRender: false;
 };

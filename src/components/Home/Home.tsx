@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ErrorPage from "@/pages/404";
 import { PostModal } from "@/shared/types";
@@ -16,7 +16,6 @@ import {
 
 export type HomeProps = {
   posts: PostModal[];
-  // eslint-disable-next-line react/require-default-props
   status?: string;
   errorMessage?: string;
 };
@@ -67,4 +66,4 @@ function Home({
   );
 }
 
-export default memo(Home);
+export default (Home);
