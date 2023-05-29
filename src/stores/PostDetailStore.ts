@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { flow, makeAutoObservable } from "mobx";
 
 import { PostModal, Source } from "@/shared/types";
 
@@ -40,4 +40,12 @@ export class PostDetailStore {
   updatePostDetail(postDetail: PostModal) {
     this.postDetail = postDetail;
   }
+
+  fetchPosts = flow(function* (this: PostDetailStore) => {
+    yield 
+  });
+
+  fetchPageDataServer = flow(function* (this:PostDetailStore, postId: string) {
+    yield this.fetchPosts();
+  });
 }
