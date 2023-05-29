@@ -33,6 +33,7 @@
     "@typescript-eslint/no-unused-vars": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-no-useless-fragment": "off",
+    "react/no-unused-prop-types": "off",
     "no-console": "off"
   }
 }

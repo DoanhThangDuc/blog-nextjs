@@ -1,20 +1,15 @@
-import { observer } from "mobx-react-lite";
-import { NextPage } from "next";
 import React from "react";
 
-import { PostDetailData, PostDetailStore } from "@/stores/PostDetailStore";
 
 import { sc } from "./FirstPost.styled";
+import { PostModal } from "@/shared/types";
 
 interface IPostDetail {
-  pageData: PostDetailData,
-  isServerRender: boolean,
+  postDetail: PostModal;
+  isServerRender: boolean;
 }
-const PostDetailPage: NextPage<IPostDetail> = observer<IPostDetail>((props) => {
-  const { postDetail } = props.pageData;
-  if (!postDetail) {
-    return <></>;
-  }
+const PostDetailPage = (driver: IPostDetail) => {
+  const { postDetail } = driver;
   return (
     <sc.FirstPostStyled>
       <sc.FirstPostImg>
@@ -28,17 +23,6 @@ const PostDetailPage: NextPage<IPostDetail> = observer<IPostDetail>((props) => {
       </sc.FirstPostContent>
     </sc.FirstPostStyled>
   );
-});
-
-export function getServerSideProps(ctx: any) {
-  const pageStore = new PostDetailStore();
-
-  return {
-    props: {
-      pageData: pageStore.dehydrate(),
-      isServerRender: true,
-    },
-  };
-}
+};
 
 export default PostDetailPage;

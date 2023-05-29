@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { NextPage } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import React from "react";
 
 import Home from "@/components/Home/Home";
 import { IServerRenderProps } from "@/shared/types";
