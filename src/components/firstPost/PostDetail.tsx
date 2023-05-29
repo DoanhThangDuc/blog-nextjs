@@ -1,15 +1,14 @@
 import React from "react";
 
-
-import { sc } from "./FirstPost.styled";
 import { PostModal } from "@/shared/types";
 
+import { sc } from "./FirstPost.styled";
+
 interface IPostDetail {
-  postDetail: PostModal;
-  isServerRender: boolean;
+  driver: PostModal | null;
 }
-const PostDetailPage = (driver: IPostDetail) => {
-  const { postDetail } = driver;
+const PostDetailPage = (props: IPostDetail) => {
+  const postDetail = props.driver;
   return (
     <sc.FirstPostStyled>
       <sc.FirstPostImg>

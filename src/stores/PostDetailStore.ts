@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 import { PostModal, Source } from "@/shared/types";
 
-export interface PostDetailData {
+export interface PostDetailStoreData {
   postDetail: PostModal | null,
   page: "home",
   isPageLoading:boolean,
@@ -29,7 +29,7 @@ export class PostDetailStore {
     makeAutoObservable(this);
   }
 
-  public dehydrate(): PostDetailData {
+  public dehydrate(): PostDetailStoreData {
     return {
       postDetail: this.postDetail || null,
       page: "home",
