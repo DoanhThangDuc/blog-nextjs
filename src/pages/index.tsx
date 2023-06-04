@@ -29,8 +29,9 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
   );
 });
 
-export function getServerSideProps(ctx: any) {
+export async function getServerSideProps(ctx: any) {
   const pageStore = new HomeStore();
+  await pageStore.fetchPosts();
 
   return {
     props: {

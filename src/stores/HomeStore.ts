@@ -1,12 +1,12 @@
 import {
+  flow,
   IObservableArray,
   makeAutoObservable,
   observable,
 } from "mobx";
 
+import { getApiMetaUrl } from "@/helpers/getApiBaseUrl";
 import { PostModal } from "@/shared/types";
-
-import { dummyPosts } from "../../Dummy-data";
 
 export interface HomeData {
   page: "home" | "index"
@@ -15,7 +15,7 @@ export interface HomeData {
 }
 
 export class HomeStore {
-  posts: IObservableArray<PostModal> = observable.array<PostModal>(dummyPosts);
+  posts: IObservableArray<PostModal> = observable.array<PostModal>([]);
 
   fetchPostError: string | null = "";
 
@@ -25,8 +25,14 @@ export class HomeStore {
     makeAutoObservable(this);
   }
 
-  get getPosts() {
-    return this.posts;
+  fetchPosts = flow(async function* fetchPosts() {
+    const posts = yield fetch(`${getApiMetaUrl()}/api/homeApi`);
+    console.log("posts", posts);
+    return posts;
+  });
+
+  async getPosts() {
+    this.posts = await this.fetchPosts();
   }
 
   public dehydrate(): HomeData {

@@ -1,8 +1,8 @@
-import { PostModal } from "@/shared/types";
+import axios from "axios";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export class PostDetailApi {
-  fetchPostDetail = async (postId: string): Promise<{ PostDetail:PostModal }> => {
-    const res = await fetch("");
-    return res.data;
-  };
+export async function PostDetailApi(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "GET") {
+    return axios.get(process.env.BASE_URL || "");
+  }
 }

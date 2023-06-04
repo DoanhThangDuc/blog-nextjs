@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { flow, makeAutoObservable } from "mobx";
 
 import { parsePostIdFromUrl } from "@/helpers/parsePostIdFromUrl";
 import { PostModal } from "@/shared/types";
