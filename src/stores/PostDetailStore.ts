@@ -1,6 +1,9 @@
-import { flow, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
-import { PostModal, Source } from "@/shared/types";
+import { parsePostIdFromUrl } from "@/helpers/parsePostIdFromUrl";
+import { PostModal } from "@/shared/types";
+
+import { dummyPosts } from "../../Dummy-data";
 
 export interface PostDetailStoreData {
   postDetail: PostModal | null,
@@ -9,7 +12,7 @@ export interface PostDetailStoreData {
 }
 
 export class PostDetailStore {
-  postDetail: PostModal = {
+  postDetail: PostModal | null = {
     source: {
       id: "",
       name: "",
@@ -37,15 +40,7 @@ export class PostDetailStore {
     };
   }
 
-  updatePostDetail(postDetail: PostModal) {
-    this.postDetail = postDetail;
+  updatePostDetail(id: string) {
+    this.postDetail = dummyPosts.find((postDetail) => parsePostIdFromUrl(postDetail.url) === id) || null;
   }
-
-  fetchPosts = flow(function* (this: PostDetailStore) => {
-    yield 
-  });
-
-  fetchPageDataServer = flow(function* (this:PostDetailStore, postId: string) {
-    yield this.fetchPosts();
-  });
 }

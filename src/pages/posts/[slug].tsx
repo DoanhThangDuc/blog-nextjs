@@ -15,11 +15,9 @@ const PostDetailPage: NextPage<IPostDetail> = observer<IPostDetail>((props) => {
 });
 export async function getServerSideProps(ctx: any) {
   const pageStore = new PostDetailStore();
-  const postId = ctx.query.slug;
 
-  await pageStore.fetchPageDataServer(
-    postId,
-  );
+  await pageStore.updatePostDetail(ctx.query.slug);
+
   return {
     props: {
       pageData: pageStore.dehydrate(),
