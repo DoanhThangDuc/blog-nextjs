@@ -2,18 +2,11 @@ import { makeAutoObservable } from "mobx";
 import { NextRouter } from "next/router";
 import React from "react";
 
-import { HomeStore } from "./HomeStore";
-import { PostDetailStore } from "./PostDetailStore";
+import { IDeviceData } from "./DeviceStore";
 
 export class RootStore {
-  homeStore: HomeStore;
-
-  postDetailStore: PostDetailStore;
-
-  constructor(homeStore: HomeStore, postDetailStore: PostDetailStore) {
+  constructor(public device: IDeviceData) {
     makeAutoObservable(this);
-    this.homeStore = homeStore;
-    this.postDetailStore = postDetailStore;
   }
 }
 const rootStoreContext = React.createContext<RootStore | null>(null);

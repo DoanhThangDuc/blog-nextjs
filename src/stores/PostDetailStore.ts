@@ -45,6 +45,11 @@ export class PostDetailStore implements PostDetailData {
     makeAutoObservable(this);
   }
 
+  fetchPageDataServer = flow(async function* fetchPageDataServer(this: PostDetailStore) {
+    yield this.fetchPosts();
+    this.updatePostDetail();
+  });
+
   public dehydrate(): PostDetailStoreData {
     return {
       postDetail: this.postDetail || null,
