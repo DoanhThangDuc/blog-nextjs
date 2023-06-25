@@ -24,7 +24,7 @@ function Post({ post }: { post: PostModal }) {
 
   return (
     <PostStyled onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <PostImg src={post.imageUrl} />
+      <PostImg src={post.urlToImage} />
       <PostContainer>
         <PostSubject>{post.source.name}</PostSubject>
         <PostTitle>

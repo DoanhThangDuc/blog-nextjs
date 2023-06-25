@@ -1,3 +1,4 @@
+import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 import { NextPage } from "next";
 import React from "react";
@@ -14,9 +15,9 @@ const PostDetailPage: NextPage<IPostDetail> = observer<IPostDetail>((props) => {
   return <FirstPost driver={postDetail} />;
 });
 export async function getServerSideProps(ctx: any) {
-  const pageStore = new PostDetailStore();
-
-  await pageStore.updatePostDetail(ctx.query.slug);
+  const pageStore = new PostDetailStore(ctx.query.slug);
+  await pageStore.fetchPosts();
+  pageStore.updatePostDetail();
 
   return {
     props: {

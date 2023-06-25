@@ -25,15 +25,11 @@ export class HomeStore {
     makeAutoObservable(this);
   }
 
-  fetchPosts = flow(async function* fetchPosts() {
+  fetchPosts = flow(async function* fetchPosts(this: HomeStore) {
     const posts = yield fetch(`${getApiMetaUrl()}/api/homeApi`);
-    console.log("posts", posts);
-    return posts;
+    const { data } = await posts.json();
+    this.posts.replace(data.articles);
   });
-
-  async getPosts() {
-    this.posts = await this.fetchPosts();
-  }
 
   public dehydrate(): HomeData {
     return {

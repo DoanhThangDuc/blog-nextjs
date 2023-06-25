@@ -12,8 +12,10 @@ export type IHomeProps =
     pageData: HomeData;
   } & IServerRenderProps);
 
+export const baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2023-05-24&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
+
 const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
-  const { pageData } = props;
+  const { posts } = props.pageData;
   return (
     <>
       <Head>
@@ -23,7 +25,7 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Home posts={pageData.posts} status="idle" errorMessage="" />
+        <Home posts={posts} status="idle" errorMessage="" />
       </div>
     </>
   );

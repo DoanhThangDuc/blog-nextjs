@@ -12,7 +12,7 @@ const PostDetailPage = (props: IPostDetail) => {
   return (
     <sc.FirstPostStyled>
       <sc.FirstPostImg>
-        <sc.Img src={postDetail?.imageUrl} alt="post-image" />
+        <sc.Img src={postDetail?.urlToImage} alt="post-image" />
       </sc.FirstPostImg>
       <sc.FirstPostContent>
         <sc.Subject>{postDetail?.source.name}</sc.Subject>

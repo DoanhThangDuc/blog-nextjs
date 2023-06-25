@@ -9,7 +9,7 @@ export type PostModal = {
   title: string;
   description: string;
   url: string;
-  imageUrl: string;
+  urlToImage: string;
   publishedAt: string;
   content: string;
 };

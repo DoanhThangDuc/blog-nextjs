@@ -1,12 +1,23 @@
-import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
+
+import { baseUrl } from "..";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   if (req.method === "GET") {
-    const response = await fetch("https://newsapi.org/v2/everything?q=tesla&from=2023-05-04&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c");
-    res.status(200).json({ data: response.body.articles });
+    try {
+      const response = await fetch(baseUrl);
+      const data = await response.json();
+
+      if (!data) {
+        throw new Error("Can't find posts");
+      }
+      res.status(200).send({ data });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error });
+    }
   }
 }
