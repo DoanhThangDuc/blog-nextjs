@@ -16,13 +16,11 @@ function Navbar() {
         </sc.Logo>
       </Link>
       <sc.NavLinks>
-        <sc.NavLink href="/lifestyle">{t("navbar.lifestyle")}</sc.NavLink>
+        <sc.NavLink href="/lifestyle">LIFESTYLE</sc.NavLink>
         <sc.NavLink href="/photodiary">PHOTODIARY</sc.NavLink>
         <sc.NavLink href="/music">MUSIC</sc.NavLink>
         <sc.NavLink href="/travel">TRAVEL</sc.NavLink>
-        <sc.LoginBtn>
-          LOGIN
-        </sc.LoginBtn>
+        <sc.LoginBtn>LOGIN</sc.LoginBtn>
       </sc.NavLinks>
     </sc.HeaderStyled>
   );

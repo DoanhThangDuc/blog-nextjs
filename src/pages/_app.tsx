@@ -2,15 +2,15 @@ import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
 import React from "react";
 
-import Layout from "@/components/layout/Layout";
+import NavLayout from "@/components/Navlayout/NavLayout";
 import { safeAsync } from "@/shared/helpers/safeAsync";
 import { rootStoreFromNextPageContext } from "@/stores/rootStoreFromNextPageContext";
 
 export default function BlogApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <NavLayout>
       <Component {...pageProps} />
-    </Layout>
+    </NavLayout>
   );
 }
 
@@ -22,7 +22,6 @@ export async function getServerSideProps(appContext: AppContext) {
   (appContext.ctx as any).translationStore = (ctx.req as any).translationStore;
 
   const appProps = await App.getInitialProps(appContext);
-  console.log("appProps", appProps);
 
   return {
     ...appProps,

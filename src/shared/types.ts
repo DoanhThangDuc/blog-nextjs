@@ -25,3 +25,13 @@ export type Source = {
   id: string;
   name: string;
 };
+
+export enum Status {
+  PENDING = "pending",
+  IDLE = "idle",
+  ERROR = "error",
+}
+
+export interface BpReactProps {
+  children?: any;
+}

@@ -19,6 +19,10 @@
         "allowTemplateLiterals": true
       }
     ],
+    "@typescript-eslint/indent": "off",
+    "operator-linebreak": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "object-curly-newline":"off",
     "react/jsx-props-no-spreading": 0,
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
@@ -35,6 +39,7 @@
     "react/jsx-no-useless-fragment": "off",
     "react/no-unused-prop-types": "off",
     "react/button-has-type": "off",
+    "@next/next/no-img-element": "off",
     "no-console": "off",
     "max-len": "off"
   }

@@ -3,19 +3,25 @@ import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 
-import Home from "@/components/Home/Home";
+import { Layout } from "@/components/Layout/Layout";
+import ModalLogin from "@/components/modalLogin /ModalLogin";
+import { PageLayout } from "@/components/PageLayout/PageLayout";
+import { Posts } from "@/components/Posts/Posts";
 import { IServerRenderProps } from "@/shared/types";
 import { HomeData, HomeStore } from "@/stores/HomeStore";
 
 export type IHomeProps =
-  | ({
-    pageData: HomeData;
-  } & IServerRenderProps);
+  | {
+      pageData: HomeData;
+    } & IServerRenderProps;
 
-export const baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2023-05-28&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
+export const baseUrl =
+  "https://newsapi.org/v2/everything?q=tesla&from=2023-06-02&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
 
 const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
+  const homeStore = new HomeStore();
   const { posts } = props.pageData;
+
   return (
     <>
       <Head>
@@ -24,9 +30,12 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Home posts={posts} status="idle" errorMessage="" />
-      </div>
+      <PageLayout
+        driver={homeStore}
+        renderPosts={() => <Posts driver={posts} />}
+      >
+        <Layout renderModalLogin={() => <ModalLogin />} />
+      </PageLayout>
     </>
   );
 });
