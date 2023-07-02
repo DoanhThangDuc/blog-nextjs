@@ -3,7 +3,7 @@ import App from "next/app";
 import React from "react";
 
 import Layout from "@/components/layout/Layout";
-import { safeAsync } from "@/helpers/safeAsync";
+import { safeAsync } from "@/shared/helpers/safeAsync";
 import { rootStoreFromNextPageContext } from "@/stores/rootStoreFromNextPageContext";
 
 export default function BlogApp({ Component, pageProps }: AppProps) {

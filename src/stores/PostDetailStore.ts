@@ -2,8 +2,8 @@ import {
   flow, IObservableArray, makeAutoObservable, observable,
 } from "mobx";
 
-import { getApiMetaUrl } from "@/helpers/getApiBaseUrl";
-import { parsePostIdFromUrl } from "@/helpers/parsePostIdFromUrl";
+import { getApiMetaUrl } from "@/shared/helpers/getApiBaseUrl";
+import { parsePostIdFromUrl } from "@/shared/helpers/parsePostIdFromUrl";
 import { PostModal } from "@/shared/types";
 
 import { dummyPosts } from "../../Dummy-data";

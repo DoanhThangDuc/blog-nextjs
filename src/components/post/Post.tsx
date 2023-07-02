@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { PostModal } from "@/shared/types";
 
-import { limitParagraph } from "../../helpers/limitParagraph";
+import { limitParagraph } from "../../shared/helpers/limitParagraph";
 import {
   PostContainer,
   PostContent,

@@ -12,7 +12,7 @@ export type IHomeProps =
     pageData: HomeData;
   } & IServerRenderProps);
 
-export const baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2023-05-24&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
+export const baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2023-05-28&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
 
 const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
   const { posts } = props.pageData;
@@ -33,7 +33,7 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
 
 export async function getServerSideProps(ctx: any) {
   const pageStore = new HomeStore();
-  await pageStore.fetchPosts();
+  await pageStore.fetchPageDataServer();
 
   return {
     props: {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ErrorPage from "@/pages/404";
 import { PostModal } from "@/shared/types";
 
-import { parsePostIdFromUrl } from "../../helpers/parsePostIdFromUrl";
+import { parsePostIdFromUrl } from "../../shared/helpers/parsePostIdFromUrl";
 import Loading from "../Loading/Loading";
 import Post from "../post/Post";
 import {

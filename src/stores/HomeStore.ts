@@ -5,7 +5,7 @@ import {
   observable,
 } from "mobx";
 
-import { getApiMetaUrl } from "@/helpers/getApiBaseUrl";
+import { getApiMetaUrl } from "@/shared/helpers/getApiBaseUrl";
 import { PostModal } from "@/shared/types";
 
 export interface HomeData {
@@ -29,6 +29,10 @@ export class HomeStore {
     const posts = yield fetch(`${getApiMetaUrl()}/api/homeApi`);
     const { data } = await posts.json();
     this.posts.replace(data.articles);
+  });
+
+  fetchPageDataServer = flow(function* fetchPageDataServer(this: HomeStore) {
+    yield this.fetchPosts();
   });
 
   public dehydrate(): HomeData {
