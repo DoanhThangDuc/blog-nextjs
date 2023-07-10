@@ -4,13 +4,18 @@ import React from "react";
 
 import NavLayout from "@/components/Navlayout/NavLayout";
 import { safeAsync } from "@/shared/helpers/safeAsync";
+import { Provider, RootStore } from "@/stores/rootStore";
 import { rootStoreFromNextPageContext } from "@/stores/rootStoreFromNextPageContext";
 
 export default function BlogApp({ Component, pageProps }: AppProps) {
+  const rootStore = (() => new RootStore())();
+
   return (
-    <NavLayout>
-      <Component {...pageProps} />
-    </NavLayout>
+    <Provider rootStore={rootStore}>
+      <NavLayout>
+        <Component {...pageProps} />
+      </NavLayout>
+    </Provider>
   );
 }
 

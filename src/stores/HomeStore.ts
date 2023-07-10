@@ -3,12 +3,24 @@ import { flow, IObservableArray, makeAutoObservable, observable } from "mobx";
 import { getApiMetaUrl } from "@/shared/helpers/getApiBaseUrl";
 import { PostModal, Status } from "@/shared/types";
 
+import { RootStore } from "./rootStore";
+
 export interface HomeData {
   page: "home" | "index";
   posts: PostModal[];
   isPageLoading: boolean;
   status: Status;
   errorMessage?: string;
+}
+
+export interface HomeStoreProps {
+  page: "home" | "index";
+  posts: PostModal[];
+  isPageLoading: boolean;
+  status: Status;
+  errorMessage?: string;
+  isModalLoginVisible: boolean;
+  setOpenModalLogin: () => void;
 }
 
 export class HomeStore {
@@ -22,9 +34,15 @@ export class HomeStore {
 
   errorMessage?: string = "";
 
-  constructor() {
+  isModalLoginVisible: boolean = true;
+
+  constructor(rootStore: RootStore) {
     makeAutoObservable(this);
   }
+
+  setOpenModalLogin = () => {
+    this.isModalLoginVisible = !this.isModalLoginVisible;
+  };
 
   fetchPosts = flow(async function* fetchPosts(this: HomeStore) {
     try {

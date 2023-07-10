@@ -26,6 +26,7 @@ export namespace sc {
   export const CloseIcon = styled(IoClose)`
     color: ${bpRaisinBlack};
     font-size: 20px;
+    cursor: pointer;
   `;
 
   export const Title = styled.p`

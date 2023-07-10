@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { baseUrl } from "..";
+import { APP_URL } from "..";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      const response = await fetch(baseUrl);
+      const response = await fetch(APP_URL);
       const data = await response.json();
 
       if (!data) {

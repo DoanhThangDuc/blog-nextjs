@@ -32,6 +32,7 @@
     "consistent-return": "off",
     "react/function-component-definition": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-cycle": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "@typescript-eslint/no-unused-vars": "off",
