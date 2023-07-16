@@ -19,8 +19,6 @@ export interface HomeStoreProps {
   isPageLoading: boolean;
   status: Status;
   errorMessage?: string;
-  isModalLoginVisible: boolean;
-  setOpenModalLogin: () => void;
 }
 
 export class HomeStore {
@@ -34,15 +32,9 @@ export class HomeStore {
 
   errorMessage?: string = "";
 
-  isModalLoginVisible: boolean = true;
-
   constructor(rootStore: RootStore) {
     makeAutoObservable(this);
   }
-
-  setOpenModalLogin = () => {
-    this.isModalLoginVisible = !this.isModalLoginVisible;
-  };
 
   fetchPosts = flow(async function* fetchPosts(this: HomeStore) {
     try {

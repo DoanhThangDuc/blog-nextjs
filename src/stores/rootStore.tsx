@@ -4,6 +4,7 @@ import React from "react";
 
 import { DeviceStore, IDeviceData } from "./DeviceStore";
 import { HomeStore } from "./HomeStore";
+import { ModalLoginStore } from "./ModalLoginStore";
 import { PostDetailStore } from "./PostDetailStore";
 
 export class RootStore {
@@ -12,6 +13,8 @@ export class RootStore {
   deviceStore: DeviceStore | null = null;
 
   postDetailStore: PostDetailStore | null = null;
+
+  modalLoginStore: ModalLoginStore | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -27,6 +30,10 @@ export class RootStore {
 
   setPostDetailStore = (store: PostDetailStore) => {
     this.postDetailStore = store;
+  };
+
+  setModalLoginStore = (store: ModalLoginStore) => {
+    this.modalLoginStore = store;
   };
 }
 const rootStoreContext = React.createContext<RootStore | null>(null);

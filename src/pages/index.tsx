@@ -9,6 +9,7 @@ import { PageLayout } from "@/components/PageLayout/PageLayout";
 import { Posts } from "@/components/Posts/Posts";
 import { IServerRenderProps } from "@/shared/types";
 import { HomeData, HomeStore } from "@/stores/HomeStore";
+import { ModalLoginStore } from "@/stores/ModalLoginStore";
 import { useRootStore } from "@/stores/rootStore";
 
 export type IHomeProps =
@@ -17,13 +18,14 @@ export type IHomeProps =
     } & IServerRenderProps;
 
 export const APP_URL =
-  "https://newsapi.org/v2/everything?q=tesla&from=2023-06-10&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
+  "https://newsapi.org/v2/everything?q=tesla&from=2023-06-12&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
 
 const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
   const rootStore = useRootStore();
   const { posts } = props.pageData;
 
   const [homeStore] = useState(() => new HomeStore(rootStore));
+  const [modalLoginStore] = useState(() => new ModalLoginStore(rootStore));
 
   return (
     <>
@@ -37,7 +39,7 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
         driver={homeStore}
         renderPosts={() => <Posts driver={posts} />}
       >
-        <Layout renderModalLogin={() => <ModalLogin driver={homeStore} />} />
+        <Layout renderModalLogin={() => <ModalLogin driver={modalLoginStore} />} />
       </PageLayout>
     </>
   );

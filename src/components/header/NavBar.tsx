@@ -1,12 +1,17 @@
+import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React from "react";
 
-import { useTranslation } from "@/shared/translate/NextI18next";
+import { TheNavBarStore } from "@/stores/TheNavBarStore";
 
 import { sc } from "./Header.styled";
 
-function Navbar() {
-  const { t } = useTranslation("NavBar");
+interface IProps {
+  driver: TheNavBarStore
+}
+
+export const Navbar = observer((props: IProps) => {
+  const { modalLoginStore } = props.driver;
 
   return (
     <sc.HeaderStyled>
@@ -20,10 +25,8 @@ function Navbar() {
         <sc.NavLink href="/photodiary">PHOTODIARY</sc.NavLink>
         <sc.NavLink href="/music">MUSIC</sc.NavLink>
         <sc.NavLink href="/travel">TRAVEL</sc.NavLink>
-        <sc.LoginBtn>LOGIN</sc.LoginBtn>
+        <sc.LoginBtn onClick={() => modalLoginStore?.toggleOpenModalLogin()}>LOGIN</sc.LoginBtn>
       </sc.NavLinks>
     </sc.HeaderStyled>
   );
-}
-
-export default Navbar;
+});

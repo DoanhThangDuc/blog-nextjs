@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 
-import { HomeStoreProps } from "@/stores/HomeStore";
+import { ModalLoginStoreProps } from "@/stores/ModalLoginStore";
 
 import { sc } from "./ModalLogin.style";
 
 type ModalLoginDriver = Pick<
-  HomeStoreProps,
-  "isModalLoginVisible" | "setOpenModalLogin"
+ModalLoginStoreProps,
+  "isModalLoginVisible" | "toggleOpenModalLogin"
 >;
 
 interface IProps {
@@ -15,7 +15,7 @@ interface IProps {
 }
 
   export const ModalLogin = observer((props: IProps) => {
-  const { isModalLoginVisible, setOpenModalLogin } = props.driver;
+  const { isModalLoginVisible, toggleOpenModalLogin } = props.driver;
 
   return (
     <>
@@ -23,7 +23,7 @@ interface IProps {
         <sc.ModalLogin>
           <sc.Container>
             <sc.IconContainer>
-              <sc.CloseIcon onClick={() => setOpenModalLogin()} />
+              <sc.CloseIcon onClick={() => toggleOpenModalLogin()} />
             </sc.IconContainer>
             <sc.Title>Login</sc.Title>
             <sc.LoginForm>

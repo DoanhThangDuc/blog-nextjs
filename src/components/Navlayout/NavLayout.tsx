@@ -1,12 +1,20 @@
+import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
 
-import Navbar from "../header/NavBar";
+import { TheNavBarStore } from "@/stores/TheNavBarStore";
 
-export default function NavLayout({ children }: { children: ReactNode }) {
+import { Navbar } from "../header/NavBar";
+
+interface IProps {
+  driver: TheNavBarStore,
+  children: ReactNode
+}
+export const NavLayout = observer((props: IProps) => {
+  const { children } = props;
   return (
     <>
-      <Navbar />
+      <Navbar driver={props.driver} />
       <main>{children}</main>
     </>
   );
-}
+});
