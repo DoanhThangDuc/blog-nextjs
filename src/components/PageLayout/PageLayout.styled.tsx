@@ -22,7 +22,6 @@ export namespace sc {
     width: calc(100vw - 18.8rem);
     justify-content: space-between;
     flex-wrap: wrap;
-    cursor: pointer;
     & div {
       margin-bottom: 10rem;
     }

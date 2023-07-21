@@ -1,12 +1,13 @@
 import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
 
+import { ModalLoginStore } from "@/stores/ModalLoginStore";
 import { TheNavBarStore } from "@/stores/TheNavBarStore";
 
 import { Navbar } from "../header/NavBar";
 
 interface IProps {
-  driver: TheNavBarStore,
+  driver: ModalLoginStore | null
   children: ReactNode
 }
 export const NavLayout = observer((props: IProps) => {

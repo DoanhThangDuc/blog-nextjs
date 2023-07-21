@@ -18,7 +18,7 @@ export type IHomeProps =
     } & IServerRenderProps;
 
 export const APP_URL =
-  "https://newsapi.org/v2/everything?q=tesla&from=2023-06-12&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
+  "https://newsapi.org/v2/everything?q=tesla&from=2023-06-21&sortBy=publishedAt&apiKey=1b4b963ff661428ebe4b361015bd015c";
 
 const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
   const rootStore = useRootStore();
@@ -39,7 +39,7 @@ const IndexPage: NextPage<IHomeProps> = observer<IHomeProps>((props) => {
         driver={homeStore}
         renderPosts={() => <Posts driver={posts} />}
       >
-        <Layout renderModalLogin={() => <ModalLogin driver={modalLoginStore} />} />
+        <Layout driver={rootStore} />
       </PageLayout>
     </>
   );

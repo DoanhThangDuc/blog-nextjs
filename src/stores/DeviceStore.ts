@@ -18,10 +18,10 @@ export class DeviceStore implements IDeviceStore {
   browserWidth: number = 0;
 
   constructor(device: IDeviceData) {
+    makeObservable(this);
     this.isWebPSupported = device.isWebPSupported;
     this.isMobileDevice = device.isMobileDevice;
     this.isMobileWidth = device.isMobileWidth;
-    makeObservable(this);
   }
 
   dehydrate(): IDeviceData {

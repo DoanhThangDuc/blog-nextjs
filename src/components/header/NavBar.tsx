@@ -2,17 +2,16 @@ import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React from "react";
 
-import { TheNavBarStore } from "@/stores/TheNavBarStore";
+import { ModalLoginStoreProps } from "@/stores/ModalLoginStore";
 
 import { sc } from "./Header.styled";
 
 interface IProps {
-  driver: TheNavBarStore
+  driver: ModalLoginStoreProps | null
 }
 
 export const Navbar = observer((props: IProps) => {
-  const { modalLoginStore } = props.driver;
-
+const { isLoginBtnClicked } = props.driver;
   return (
     <sc.HeaderStyled>
       <Link href="/">
@@ -25,7 +24,7 @@ export const Navbar = observer((props: IProps) => {
         <sc.NavLink href="/photodiary">PHOTODIARY</sc.NavLink>
         <sc.NavLink href="/music">MUSIC</sc.NavLink>
         <sc.NavLink href="/travel">TRAVEL</sc.NavLink>
-        <sc.LoginBtn onClick={() => modalLoginStore?.toggleOpenModalLogin()}>LOGIN</sc.LoginBtn>
+        <sc.LoginBtn onClick={() => isLoginBtnClicked()}>LOGIN</sc.LoginBtn>
       </sc.NavLinks>
     </sc.HeaderStyled>
   );

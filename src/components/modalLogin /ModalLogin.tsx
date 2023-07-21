@@ -7,7 +7,7 @@ import { sc } from "./ModalLogin.style";
 
 type ModalLoginDriver = Pick<
 ModalLoginStoreProps,
-  "isModalLoginVisible" | "toggleOpenModalLogin"
+  "isModalLoginVisible" | "isModalLoginClosed"
 >;
 
 interface IProps {
@@ -15,7 +15,7 @@ interface IProps {
 }
 
   export const ModalLogin = observer((props: IProps) => {
-  const { isModalLoginVisible, toggleOpenModalLogin } = props.driver;
+  const { isModalLoginVisible, isModalLoginClosed } = props.driver;
 
   return (
     <>
@@ -23,7 +23,7 @@ interface IProps {
         <sc.ModalLogin>
           <sc.Container>
             <sc.IconContainer>
-              <sc.CloseIcon onClick={() => toggleOpenModalLogin()} />
+              <sc.CloseIcon onClick={() => isModalLoginClosed()} />
             </sc.IconContainer>
             <sc.Title>Login</sc.Title>
             <sc.LoginForm>

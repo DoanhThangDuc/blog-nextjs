@@ -1,20 +1,17 @@
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
-import React, { useState } from "react";
+import React from "react";
 
 import { NavLayout } from "@/components/Navlayout/NavLayout";
 import { safeAsync } from "@/shared/helpers/safeAsync";
 import { Provider, RootStore } from "@/stores/rootStore";
 import { rootStoreFromNextPageContext } from "@/stores/rootStoreFromNextPageContext";
-import { TheNavBarStore } from "@/stores/TheNavBarStore";
 
 export default function BlogApp({ Component, pageProps }: AppProps) {
-  const rootStore = (() => new RootStore())();
-  const [theNavBarStore] = useState(() => new TheNavBarStore(rootStore));
-
+  const rootStore = new RootStore();
   return (
     <Provider rootStore={rootStore}>
-      <NavLayout driver={theNavBarStore}>
+      <NavLayout driver={rootStore.modalLoginStore}>
         <Component {...pageProps} />
       </NavLayout>
     </Provider>

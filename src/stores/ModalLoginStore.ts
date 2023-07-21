@@ -4,7 +4,8 @@ import { RootStore } from "./rootStore";
 
 export interface ModalLoginStoreProps {
   isModalLoginVisible: boolean;
-  toggleOpenModalLogin: () => void;
+  isLoginBtnClicked: () => void;
+  isModalLoginClosed: () => void;
 }
 
 export class ModalLoginStore {
@@ -14,8 +15,11 @@ export class ModalLoginStore {
     makeAutoObservable(this);
   }
 
-  toggleOpenModalLogin = () => {
-    console.log("hehehhee");
-    this.isModalLoginVisible = !this.isModalLoginVisible;
+  isLoginBtnClicked = () => {
+    this.isModalLoginVisible = true;
+  };
+
+  isModalLoginClosed = () => {
+    this.isModalLoginVisible = false;
   };
 }

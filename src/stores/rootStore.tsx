@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { NextRouter } from "next/router";
 import React from "react";
 
-import { DeviceStore, IDeviceData } from "./DeviceStore";
+import { DeviceStore } from "./DeviceStore";
 import { HomeStore } from "./HomeStore";
 import { ModalLoginStore } from "./ModalLoginStore";
 import { PostDetailStore } from "./PostDetailStore";
@@ -18,6 +17,7 @@ export class RootStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.modalLoginStore = new ModalLoginStore(this);
   }
 
   setPageStore = (store: HomeStore) => {
