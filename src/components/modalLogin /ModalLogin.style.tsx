@@ -7,14 +7,61 @@ import styled from "styled-components";
 import { bpBlackOlive, bpRaisinBlack, bpRifleGreen } from "@/shared/color";
 
 export namespace sc {
-  export const ModalLogin = styled.div`
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-    align-items: center;
-    width: 320px;
-    height: 380px;
+  export const Wrapper = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: rgba(0,0,0,0.4); 
+    overflow: hidden;
   `;
+
+export const ModalLogin = styled.div`
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #fff;
+border-radius: 10px;
+width: 320px;
+height: 380px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    position: absolute;
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 30%; /* Adjust the final position */
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 30%; /* Adjust the final position */
+    opacity: 1;
+  }
+}
+
+-webkit-animation-name: animatetop;
+-webkit-animation-duration: 0.8s; /* Increase the duration */
+-webkit-animation-timing-function: ease; /* Use ease or ease-in-out */
+animation-name: animatetop;
+animation-duration: 0.8s; /* Increase the duration */
+animation-timing-function: ease; /* Use ease or ease-in-out */
+`;
+
   export const Container = styled.div`
     width: 290px;
     height: 350px;
